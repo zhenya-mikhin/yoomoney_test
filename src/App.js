@@ -1,21 +1,26 @@
-function App() {
+import React from 'react'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+
+import MainPage from './components/pages/MainPage/MainPage'
+import AddCard from './components/pages/AddCardPage/AddCardPage'
+import SuccessPage from './components/pages/SuccessPage/SuccessPage'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={'/'}>
+          <MainPage />
+        </Route>
+        <Route exact path={'/add'}>
+          <AddCard />
+        </Route>
+        <Route exact path={'/success'}>
+          <SuccessPage />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default App
